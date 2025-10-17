@@ -22,7 +22,7 @@ services:
     networks:
       - lampnet
 
-  # 👇 MySQL exporter
+  # MySQL exporter
   mysqld-exporter:
     image: prom/mysqld-exporter
     environment:
@@ -32,7 +32,7 @@ services:
     networks:
       - lampnet
 
-  # 👇 Apache exporter
+  # Apache exporter
   apache-exporter:
     image: lusotycoon/apache-exporter
     command:
@@ -75,6 +75,19 @@ services:
       - prometheus
     networks:
       - lampnet
+
+  # cAdvisor
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor
+    ports:
+      - "8081:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - lampnet
+
 
 volumes:
   db_data:
