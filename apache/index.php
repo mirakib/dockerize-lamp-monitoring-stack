@@ -82,7 +82,7 @@ if ($result) {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PHP + MySQL CRUD</title>
+  <title>LAMP CRUD MONITORING</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; color: #1a202c; }
     h1 { color: #2d3748; }
