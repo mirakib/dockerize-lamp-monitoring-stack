@@ -17,6 +17,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: mydb
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword 
     volumes:
       - db_data:/var/lib/mysql
     networks:
@@ -27,6 +29,9 @@ services:
     image: prom/mysqld-exporter
     environment:
       DATA_SOURCE_NAME: "root:rootpass@(mysql:3306)/"
+    volumes:
+      - ./my.cnf:/root/.my.cnf:ro
+    restart: unless-stopped
     ports:
       - "9104:9104"
     depends_on:
