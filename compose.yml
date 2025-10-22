@@ -17,8 +17,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: mydb
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
     volumes:
       - db_data:/var/lib/mysql
       - ./mysql/init-exporter.sql:/docker-entrypoint-initdb.d/init-exporter.sql:ro
@@ -28,7 +26,6 @@ services:
   # MySQL exporter
   mysqld-exporter:
     image: prom/mysqld-exporter
-    restart: unless-stopped
     ports:
       - "9104:9104"
     depends_on:
