@@ -2,6 +2,8 @@
 
 A containerized LAMP (Linux, Apache, MySQL, PHP) application deployed using Docker Compose, integrated with Prometheus and Grafana for real-time performance monitoring and metrics visualization.
 
+![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=mirakib&repo=dockerize-lamp-monitoring-stack)
+
 ## Features
 
 - **LAMP Stack** (Apache, MySQL, PHP) for a CRUD web app  
