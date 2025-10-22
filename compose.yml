@@ -28,13 +28,20 @@ services:
   # MySQL exporter
   mysqld-exporter:
     image: prom/mysqld-exporter
-    environment:
-      DATA_SOURCE_NAME: "mysqld_exporter:exporterpass@(mysql:3306)/"
     restart: unless-stopped
     ports:
       - "9104:9104"
     depends_on:
       - mysql
+    # Use CLI flags and environment for credentials to avoid relying on a mounted
+    # .my.cnf file (can cause parsing issues on Windows mounts). The exporter
+    # accepts --mysqld.username and MYSQLD_EXPORTER_PASSWORD (env) for the
+    # password.
+    environment:
+      - MYSQLD_EXPORTER_PASSWORD=exporterpass
+    command:
+      - '--mysqld.username=mysqld_exporter'
+      - '--mysqld.address=mysql:3306'
     networks:
       - lampnet
 
