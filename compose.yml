@@ -18,24 +18,26 @@ services:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: mydb
       MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword 
+      MYSQL_PASSWORD: mypassword
     volumes:
       - db_data:/var/lib/mysql
+      - ./mysql/init-exporter.sql:/docker-entrypoint-initdb.d/init-exporter.sql:ro
     networks:
       - lampnet
 
   # MySQL exporter
   mysqld-exporter:
     image: prom/mysqld-exporter
-    environment:
-      DATA_SOURCE_NAME: "root:rootpass@(mysql:3306)/"
-    volumes:
-      - ./my.cnf:/root/.my.cnf:ro
     restart: unless-stopped
     ports:
       - "9104:9104"
     depends_on:
       - mysql
+    environment:
+      - MYSQLD_EXPORTER_PASSWORD=exporterpass
+    command:
+      - '--mysqld.username=mysqld_exporter'
+      - '--mysqld.address=mysql:3306'
     networks:
       - lampnet
 
