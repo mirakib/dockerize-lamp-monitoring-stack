@@ -1,4 +1,10 @@
-## Dockerized LAMP Stack with Prometheus & Grafana Monitoring
+<div style="display: flex; align-items: center; gap: 10px;">
+  <img src="https://skillicons.dev/icons?i=linux" style="height: 40px;"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apache/apache-original.svg" style="height: 40px;"/>
+  <img src="https://skillicons.dev/icons?i=mysql,php,prometheus,grafana,docker" style="height: 40px;"/>  
+</div>
+
+## Dockerized LAMP Stack with Prometheus & Grafana Monitoring     
 
 A containerized LAMP (Linux, Apache, MySQL, PHP) application deployed using Docker Compose, integrated with Prometheus and Grafana for real-time performance monitoring and metrics visualization.
 
