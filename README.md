@@ -22,34 +22,27 @@ A containerized LAMP (Linux, Apache, MySQL, PHP) application deployed using Dock
 ---
 
 ## Architecture
-
+```
 [ Apache (PHP App) ] → [ Apache Exporter ] ┐
 
 [ MySQL Database ] → [ MySQL Exporter ] ├──> [ Prometheus ] → [ Grafana ]
 
 [ Host System ] → [ Node Exporter ] ┘
+```
 
 ## Project Structure
 
-project/
-
-├── apache/
-
-│ ├── Dockerfile 
-
-│ ├── 000-default.conf 
-
-│ └── index.php 
-
-│
-
-├── prometheus/
-
-│ └── prometheus.yml 
-
-│
-
-└── compose.yml 
-
-
-
+```
+.
+├── apache
+│   ├── 000-default.conf
+│   ├── Dockerfile
+│   └── index.php
+├── compose.yml
+├── mysql
+│   └── init-exporter.sql
+├── mysqld-exporter
+├── prometheus
+│   └── prometheus.yml
+└── README.md
+```
