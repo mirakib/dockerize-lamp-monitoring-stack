@@ -12,14 +12,13 @@ A containerized LAMP (Linux, Apache, MySQL, PHP) application deployed using Dock
 
 ## Features
 
-- **LAMP Stack** (Apache, MySQL, PHP) for a CRUD web app  
+- **LAMP Stack** (Linux, Apache, MySQL, PHP) for a CRUD web app  
 - **Prometheus** for collecting metrics  
 - **Grafana** for visualization dashboards  
 - **Exporters** for Apache, MySQL, and Node metrics  
 - Fully containerized and network-isolated  
 - Easy to extend or deploy on any Docker host  
 
----
 
 ## Architecture
 ```
@@ -46,3 +45,27 @@ A containerized LAMP (Linux, Apache, MySQL, PHP) application deployed using Dock
 │   └── prometheus.yml
 └── README.md
 ```
+## Setup Instructions
+
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/mirakib/dockerize-lamp-monitoring-stack.git
+   ```
+2. **Navigate to the Project Directory**  
+   ```bash
+   cd dockerize-lamp-monitoring-stack
+   ```
+3. **Build and Start the Containers**  
+   ```bash
+   docker compose up -d --build
+   ```  
+4. **Access the Application and Dashboards**  
+   - LAMP App: `http://localhost:8080`
+   - Prometheus: `http://localhost:9090`
+   - Grafana: `http://localhost:3000` 
+  
+5. **Clean Up**  
+   To stop and remove all containers, run:  
+   ```bash
+   docker compose down
+   ```
